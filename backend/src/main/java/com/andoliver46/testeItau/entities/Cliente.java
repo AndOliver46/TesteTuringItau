@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -21,12 +22,6 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente")
     private List<Conta> contas = new ArrayList<>();
-
-    @OneToMany(mappedBy = "emissor")
-    private List<Transferencia> transferenciasRealizadas = new ArrayList<>();
-
-    @OneToMany(mappedBy = "receptor")
-    private List<Transferencia> transferenciasRecebidas = new ArrayList<>();
 
     public Cliente(){
     }
@@ -63,14 +58,6 @@ public class Cliente {
 
     public List<Conta> getContas() {
         return contas;
-    }
-
-    public List<Transferencia> getTransferenciasRealizadas() {
-        return transferenciasRealizadas;
-    }
-
-    public List<Transferencia> getTransferenciasRecebidas() {
-        return transferenciasRecebidas;
     }
 
     @Override

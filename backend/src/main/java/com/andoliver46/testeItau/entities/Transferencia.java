@@ -1,6 +1,7 @@
 package com.andoliver46.testeItau.entities;
 
 import com.andoliver46.testeItau.enums.TipoTransferencia;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -17,22 +18,22 @@ public class Transferencia {
     private Instant dataHora;
     @Column(nullable = false)
     private Double valor;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
     private TipoTransferencia tipo;
 
     @ManyToOne
     @JoinColumn(name = "id_emissor")
-    private Cliente emissor;
+    private Conta emissor;
 
     @ManyToOne
     @JoinColumn(name = "id_receptor")
-    private Cliente receptor;
+    private Conta receptor;
 
     public Transferencia() {
     }
 
-    public Transferencia(Integer id, Instant dataHora, Double valor, TipoTransferencia tipo, Cliente emissor, Cliente receptor) {
+    public Transferencia(Integer id, Instant dataHora, Double valor, TipoTransferencia tipo, Conta emissor, Conta receptor) {
         this.id = id;
         this.dataHora = dataHora;
         this.valor = valor;
@@ -73,19 +74,19 @@ public class Transferencia {
         this.tipo = tipo;
     }
 
-    public Cliente getEmissor() {
+    public Conta getEmissor() {
         return emissor;
     }
 
-    public void setEmissor(Cliente emissor) {
+    public void setEmissor(Conta emissor) {
         this.emissor = emissor;
     }
 
-    public Cliente getReceptor() {
+    public Conta getReceptor() {
         return receptor;
     }
 
-    public void setReceptor(Cliente receptor) {
+    public void setReceptor(Conta receptor) {
         this.receptor = receptor;
     }
 

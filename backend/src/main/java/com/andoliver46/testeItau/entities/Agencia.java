@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,9 +17,6 @@ public class Agencia implements Serializable {
     private Integer id;
     @Column(unique = true, nullable = false)
     private String codigo;
-
-    @OneToMany(mappedBy = "agencia")
-    private Set<Conta> contas = new HashSet<>();
 
     public Agencia(){
     }
@@ -42,10 +40,6 @@ public class Agencia implements Serializable {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    public Set<Conta> getContas() {
-        return contas;
     }
 
     @Override

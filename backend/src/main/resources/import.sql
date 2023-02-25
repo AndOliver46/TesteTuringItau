@@ -18,3 +18,5 @@ INSERT INTO tb_conta(numero, saldo, senha, agencia_id, id_cliente) VALUES ('2167
 INSERT INTO tb_conta(numero, saldo, senha, agencia_id, id_cliente) VALUES ('215647', 0.0, '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 3, 3);
 INSERT INTO tb_conta(numero, saldo, senha, agencia_id, id_cliente) VALUES ('215674', 0.0, '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 2, 4);
 INSERT INTO tb_conta(numero, saldo, senha, agencia_id, id_cliente) VALUES ('261567', 0.0, '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 4, 5);
+
+INSERT INTO tb_transferencia(data_hora, tipo, valor, id_emissor, id_receptor) VALUES (TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', '1', 2000.00, 1, 2);

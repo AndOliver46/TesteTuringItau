@@ -2,6 +2,8 @@ package com.andoliver46.testeItau.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +20,7 @@ public class Conta {
     @Column(nullable = false)
     private Double saldo;
 
+
     @ManyToOne
     @JoinColumn(name = "agencia_id")
     private Agencia agencia;
@@ -25,6 +28,12 @@ public class Conta {
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "emissor")
+    private List<Transferencia> transferenciasRealizadas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "receptor")
+    private List<Transferencia> transferenciasRecebidas = new ArrayList<>();
 
     public Conta(){
     }
@@ -89,6 +98,14 @@ public class Conta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public List<Transferencia> getTransferenciasRealizadas() {
+        return transferenciasRealizadas;
+    }
+
+    public List<Transferencia> getTransferenciasRecebidas() {
+        return transferenciasRecebidas;
     }
 
     @Override
