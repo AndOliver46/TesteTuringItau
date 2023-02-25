@@ -1,14 +1,15 @@
 package com.andoliver46.testeItau.entities;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_conta")
-public class Conta {
+public class Conta implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +21,8 @@ public class Conta {
     @Column(nullable = false)
     private Double saldo;
 
+    @Column(nullable = false)
+    private String authoritie;
 
     @ManyToOne
     @JoinColumn(name = "agencia_id")
@@ -119,5 +122,56 @@ public class Conta {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>(Arrays.asList(new SimpleGrantedAuthority(this.authoritie)));
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.numero;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "id=" + id +
+                ", numero='" + numero + '\'' +
+                ", senha='" + senha + '\'' +
+                ", saldo=" + saldo +
+                ", authoritie='" + authoritie + '\'' +
+                ", agencia=" + agencia +
+                ", cliente=" + cliente +
+                ", transferenciasRealizadas=" + transferenciasRealizadas +
+                ", transferenciasRecebidas=" + transferenciasRecebidas +
+                '}';
     }
 }

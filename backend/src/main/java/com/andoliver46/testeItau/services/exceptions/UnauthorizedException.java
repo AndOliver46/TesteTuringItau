@@ -3,11 +3,11 @@ package com.andoliver46.testeItau.services.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class EntityNotFoundException extends RuntimeException {
+@ResponseStatus(HttpStatus.UNAUTHORIZED)
+public class UnauthorizedException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public EntityNotFoundException(String msg){
+    public UnauthorizedException(String msg) {
         super(msg);
     }
 

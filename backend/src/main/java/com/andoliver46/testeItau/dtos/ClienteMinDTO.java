@@ -13,8 +13,6 @@ public class ClienteMinDTO implements Serializable {
     private String nome;
     private String cpf;
 
-    private List<ContaMinDTO> contas = new ArrayList<>();
-
     public ClienteMinDTO(){
     }
 
@@ -22,8 +20,6 @@ public class ClienteMinDTO implements Serializable {
         id = entity.getId();
         nome = entity.getNome();
         cpf = entity.getCpf();
-
-        entity.getContas().forEach(x -> this.contas.add(new ContaMinDTO(x)));
     }
 
     public Integer getId() {
@@ -48,9 +44,5 @@ public class ClienteMinDTO implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public List<ContaMinDTO> getContas() {
-        return contas;
     }
 }
