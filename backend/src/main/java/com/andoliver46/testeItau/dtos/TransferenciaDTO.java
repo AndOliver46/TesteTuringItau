@@ -22,15 +22,6 @@ public class TransferenciaDTO implements Serializable {
     public TransferenciaDTO(){
     }
 
-    public TransferenciaDTO(Integer id, Instant dataHora, Double valor, String tipo, ContaDTO emissor, ContaDTO receptor) {
-        this.id = id;
-        this.dataHora = dataHora;
-        this.valor = valor;
-        this.tipo = TipoTransferencia.valueOf(tipo);
-        this.emissor = emissor;
-        this.receptor = receptor;
-    }
-
     public TransferenciaDTO(Transferencia entity) {
         this.id = entity.getId();
         this.dataHora = entity.getDataHora();

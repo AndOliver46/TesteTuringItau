@@ -33,15 +33,6 @@ public class Transferencia {
     public Transferencia() {
     }
 
-    public Transferencia(Integer id, Instant dataHora, Double valor, TipoTransferencia tipo, Conta emissor, Conta receptor) {
-        this.id = id;
-        this.dataHora = dataHora;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.emissor = emissor;
-        this.receptor = receptor;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -88,6 +79,11 @@ public class Transferencia {
 
     public void setReceptor(Conta receptor) {
         this.receptor = receptor;
+    }
+
+    public void realizarTransferencia(){
+        emissor.transferir(valor);
+        receptor.depositar(valor);
     }
 
     @Override

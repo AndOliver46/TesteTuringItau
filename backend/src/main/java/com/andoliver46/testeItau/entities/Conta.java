@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.andoliver46.testeItau.enums.TipoTransferencia;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -84,6 +85,15 @@ public class Conta implements UserDetails {
     public void sacar(Double valor){
         if(this.saldo >= valor ){
             this.saldo -= valor;
+        }
+    }
+
+    public Boolean transferir(Double valor){
+        if(valor <= this.saldo){
+            this.saldo -= valor;
+            return true;
+        }else{
+            return false;
         }
     }
 

@@ -29,6 +29,13 @@ public class ContaService {
     }
 
     @Transactional(readOnly = true)
+    public Conta retornarMinhaConta(){
+        String numero = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Conta> optional = contaRepository.findByNumero(numero);
+        return optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
+    }
+
+    @Transactional(readOnly = true)
     public BuscarContaDTO buscarConta(BuscarContaDTO dto) {
         Optional<Conta> optional = contaRepository.findByNumero(dto.getConta());
         Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
@@ -44,4 +51,22 @@ public class ContaService {
 
         return newDto;
     }
+
+    @Transactional(readOnly = true)
+    public Conta buscarConta(String numero) {
+        Optional<Conta> optional = contaRepository.findByNumero(numero);
+        Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
+        return conta;
+    }
+
+    @Transactional(readOnly = true)
+    public void verificarExistenciaDeConta(BuscarContaDTO dto) {
+        Optional<Conta> optional = contaRepository.findByNumero(dto.getConta());
+        Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
+        if(!dto.getAgencia().equals(conta.getAgencia().getCodigo())){
+            throw new EntityNotFoundException("Cliente não localizado");
+        }
+    }
+
+
 }
