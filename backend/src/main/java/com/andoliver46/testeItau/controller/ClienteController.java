@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/clientes")
 public class ClienteController {
@@ -22,6 +24,12 @@ public class ClienteController {
     @GetMapping("/{id}")
     public ResponseEntity<ClienteMinDTO> findById(@PathVariable Integer id){
         ClienteMinDTO dto = clienteService.findById(id);
+        return ResponseEntity.ok(dto);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClienteMinDTO>> findAll(){
+        List<ClienteMinDTO> dto = clienteService.findAll();
         return ResponseEntity.ok(dto);
     }
 
