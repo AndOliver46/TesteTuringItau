@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.services;
 
+import com.andoliver46.testeItau.dtos.BuscarContaDTO;
 import com.andoliver46.testeItau.dtos.ClienteMinDTO;
 import com.andoliver46.testeItau.dtos.ContaMinDTO;
 import com.andoliver46.testeItau.entities.Cliente;
@@ -27,4 +28,20 @@ public class ContaService {
         return new ContaMinDTO(obj);
     }
 
+    @Transactional(readOnly = true)
+    public BuscarContaDTO buscarConta(BuscarContaDTO dto) {
+        Optional<Conta> optional = contaRepository.findByNumero(dto.getConta());
+        Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
+        if(!dto.getAgencia().equals(conta.getAgencia().getCodigo())){
+            throw new EntityNotFoundException("Cliente não localizado");
+        }
+
+        BuscarContaDTO newDto = new BuscarContaDTO();
+        newDto.setConta(conta.getNumero());
+        newDto.setAgencia(conta.getAgencia().getCodigo());
+        newDto.setNome(conta.getCliente().getNome());
+        newDto.setCpf(conta.getCliente().getCpf());
+
+        return newDto;
+    }
 }
