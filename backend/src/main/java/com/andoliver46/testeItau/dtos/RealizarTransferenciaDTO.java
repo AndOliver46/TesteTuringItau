@@ -12,7 +12,7 @@ public class RealizarTransferenciaDTO implements Serializable {
     private Double valor;
     private String tipo;
 
-    private ContaDTO receptor;
+    private String receptor;
 
     public RealizarTransferenciaDTO(){
     }
@@ -33,11 +33,11 @@ public class RealizarTransferenciaDTO implements Serializable {
         this.tipo = tipo;
     }
 
-    public ContaDTO getReceptor() {
+    public String getReceptor() {
         return receptor;
     }
 
-    public void setReceptor(ContaDTO receptor) {
+    public void setReceptor(String receptor) {
         this.receptor = receptor;
     }
 }

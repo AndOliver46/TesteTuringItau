@@ -24,11 +24,4 @@ public class ContaController {
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping("/buscarConta")
-    public ResponseEntity<BuscarContaDTO> buscarConta(@RequestBody BuscarContaDTO dto){
-        BuscarContaDTO newDto = contaService.buscarConta(dto);
-        return ResponseEntity.ok(newDto);
-    }
-
-
 }

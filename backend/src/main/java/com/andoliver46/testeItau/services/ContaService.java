@@ -28,6 +28,7 @@ public class ContaService {
         return new ContaMinDTO(obj);
     }
 
+    //Funções utilitárias
     @Transactional(readOnly = true)
     public Conta retornarMinhaConta(){
         String numero = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -36,37 +37,10 @@ public class ContaService {
     }
 
     @Transactional(readOnly = true)
-    public BuscarContaDTO buscarConta(BuscarContaDTO dto) {
-        Optional<Conta> optional = contaRepository.findByNumero(dto.getConta());
-        Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
-        if(!dto.getAgencia().equals(conta.getAgencia().getCodigo())){
-            throw new EntityNotFoundException("Cliente não localizado");
-        }
-
-        BuscarContaDTO newDto = new BuscarContaDTO();
-        newDto.setConta(conta.getNumero());
-        newDto.setAgencia(conta.getAgencia().getCodigo());
-        newDto.setNome(conta.getCliente().getNome());
-        newDto.setCpf(conta.getCliente().getCpf());
-
-        return newDto;
-    }
-
-    @Transactional(readOnly = true)
-    public Conta buscarConta(String numero) {
+    public Conta buscarOutraConta(String numero) {
         Optional<Conta> optional = contaRepository.findByNumero(numero);
         Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
         return conta;
     }
-
-    @Transactional(readOnly = true)
-    public void verificarExistenciaDeConta(BuscarContaDTO dto) {
-        Optional<Conta> optional = contaRepository.findByNumero(dto.getConta());
-        Conta conta = optional.orElseThrow(() -> new EntityNotFoundException("Cliente não localizado"));
-        if(!dto.getAgencia().equals(conta.getAgencia().getCodigo())){
-            throw new EntityNotFoundException("Cliente não localizado");
-        }
-    }
-
 
 }

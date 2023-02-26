@@ -32,7 +32,7 @@ public class TransferenciaService {
     @Transactional
     public TransferenciaDTO transferir(RealizarTransferenciaDTO dto) {
         Conta emissor = contaService.retornarMinhaConta();
-        Conta receptor = contaService.buscarConta(dto.getReceptor().getNumero());
+        Conta receptor = contaService.buscarOutraConta(dto.getReceptor());
 
         Transferencia transferencia = new Transferencia();
         transferencia.setDataHora(Instant.now());
