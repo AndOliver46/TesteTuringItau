@@ -8,10 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class TesteItauApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(TesteItauApplication.class, args);
-
-		System.out.println(new BCryptPasswordEncoder().encode("Senha12$"));
+		//System.out.println(new BCryptPasswordEncoder().encode("Senha12$"));
 	}
 
 }

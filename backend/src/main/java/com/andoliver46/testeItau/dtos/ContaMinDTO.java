@@ -13,6 +13,8 @@ public class ContaMinDTO implements Serializable {
     private String numero;
     private Double saldo;
 
+    private String senha;
+
     private ClienteMinDTO cliente;
     private AgenciaDTO agencia;
 

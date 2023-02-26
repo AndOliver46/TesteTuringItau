@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.andoliver46.testeItau.entities.exceptions.ValueLimitExcpetion;
 import com.andoliver46.testeItau.enums.TipoTransferencia;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -82,8 +83,19 @@ public class Transferencia {
     }
 
     public void realizarTransferencia(){
+        verificarValorETipo();
         emissor.transferir(valor);
         receptor.depositar(valor);
+    }
+
+    private void verificarValorETipo() {
+        if(valor > 5000.00 && tipo.equals(TipoTransferencia.PIX)){
+            throw new ValueLimitExcpetion("Limite PIX excedido");
+        }else if((valor < 5000.00 || valor > 10000.00) &&  tipo.equals(TipoTransferencia.TED)){
+            throw new ValueLimitExcpetion("Limite TED excedido");
+        }else if((valor < 10000.00) &&  tipo.equals(TipoTransferencia.DOC)){
+            throw new ValueLimitExcpetion("Limite DOC excedido");
+        }
     }
 
     @Override

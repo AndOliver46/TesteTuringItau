@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.andoliver46.testeItau.entities.exceptions.InsuficientBalanceException;
 import com.andoliver46.testeItau.enums.TipoTransferencia;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,7 +21,7 @@ public class Conta implements UserDetails {
     @Column(nullable = false)
     private String senha;
     @Column(nullable = false)
-    private Double saldo;
+    private Double saldo = 0.00;
 
     @Column(nullable = false)
     private String authoritie;
@@ -78,14 +79,16 @@ public class Conta implements UserDetails {
         return saldo;
     }
 
-    public void depositar(Double valor){
-        this.saldo += valor;
+    public String getAuthoritie() {
+        return authoritie;
     }
 
-    public void sacar(Double valor){
-        if(this.saldo >= valor ){
-            this.saldo -= valor;
-        }
+    public void setAuthoritie(String authoritie) {
+        this.authoritie = authoritie;
+    }
+
+    public void depositar(Double valor){
+        this.saldo += valor;
     }
 
     public Boolean transferir(Double valor){
@@ -93,7 +96,7 @@ public class Conta implements UserDetails {
             this.saldo -= valor;
             return true;
         }else{
-            return false;
+            throw new InsuficientBalanceException("Saldo insuficiente");
         }
     }
 
