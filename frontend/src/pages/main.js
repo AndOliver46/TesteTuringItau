@@ -24,19 +24,18 @@ export default function Main({ history }) {
 
   const handleTransferir = async (e) => {
     e.preventDefault();
-    console.log(valor, tipo, receptor);
     await api
       .post("/transferencias/transferir", { valor, tipo, receptor })
       .then((response) => {
         setSaldoEmissor(response.data.saldoEmissor);
         setSaldoReceptor(response.data.saldoReceptor);
-        const div = document.querySelector("#transferenciaSucesso");
-        div.removeAttribute("hidden");
+        document.getElementById("transferenciaSucesso").style.display = "block";
+        document.getElementById("transferenciaErro").style.display = "none";
         history.push("/main");
       })
       .catch((error) => {
-        const div = document.querySelector("#transferenciaErro");
-        div.removeAttribute("hidden");
+        document.getElementById("transferenciaSucesso").style.display = "none";
+        document.getElementById("transferenciaErro").style.display = "block";
         setMensagemErro(error.response.data.message);
       });
   };
@@ -55,10 +54,7 @@ export default function Main({ history }) {
       </h1>
 
       <div className="card">
-        <div
-          className="App"
-          style={{ padding: "10px"}}
-        >
+        <div className="App" style={{ padding: "10px" }}>
           <p>Cliente: {user?.cliente.nome}</p>
           <p>CPF: {user?.cliente.cpf}</p>
           <p>Numero da conta: {user?.numero}</p>
@@ -67,7 +63,12 @@ export default function Main({ history }) {
         </div>
       </div>
 
-      <div className="card" id="transferenciaSucesso" hidden>
+      <div
+        className="card"
+        id="transferenciaSucesso"
+        align="center"
+        style={{ display: "none" }}
+      >
         <div className="App" style={{ padding: "10px", margin: "0px" }}>
           <p>Sua transferência foi realizada com sucesso!</p>
           <p>Saldo do emissor: R$ {saldoEmissor}</p>
@@ -75,7 +76,12 @@ export default function Main({ history }) {
         </div>
       </div>
 
-      <div className="card" id="transferenciaErro" hidden align="center">
+      <div
+        className="card"
+        id="transferenciaErro"
+        align="center"
+        style={{ display: "none" }}
+      >
         <div className="App" style={{ padding: "10px", margin: "0px" }}>
           <p>Sua transferência não foi completada, erro: {mensagemErro}</p>
         </div>

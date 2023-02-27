@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 import api from "../services/Api";
-import { logout } from "../services/auth";
 
 export default function Criar({ history }) {
   const [codigoAgencia, setCodigoAgencia] = useState("8569");
@@ -121,7 +120,7 @@ export default function Criar({ history }) {
                   type="cpf"
                   className="form-control"
                   placeholder="Entre com o CPF"
-                  pattern="(\d{3}.?\d{3}.?\d{3}-?\d{2})"
+                  pattern="(^(\d{3}.\d{3}.\d{3}-\d{2})|(\d{11})$)"
                   value={cpf}
                   onChange={(e) => setCpf(e.target.value)}
                 />

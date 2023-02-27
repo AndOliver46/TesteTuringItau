@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="922ba7bc-7729-4a01-b749-ba207ea35435" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/authentication/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/authentication/AuthenticationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/authentication/AuthenticationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/authentication/JwtResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/TransferenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/TransferenciaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/ContaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/ContaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/criarConta.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/criarConta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

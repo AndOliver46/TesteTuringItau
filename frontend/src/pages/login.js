@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
 import api from "../services/Api";
-import { login } from "../services/auth";
+import { login, logout, getToken } from "../services/auth";
 
 export default function Login({ history }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
+    const token = getToken();
+    logout(token);
     e.preventDefault();
     await api
       .post("/login", { username, password })
