@@ -9,10 +9,19 @@ export default function Login({ history }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await api.post("/login", { username, password }).then((response) => {
-      login(response.data.token);
-      history.push("/main");
-    });
+    await api
+      .post("/login", { username, password })
+      .then((response) => {
+        login(response.data.token);
+        history.push("/main");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data.message);
+          const p = document.querySelector("#erroSenha");
+          p.textContent = error.response.data.message;
+        }
+      });
   };
 
   const handleCriar = async () => {
@@ -24,9 +33,9 @@ export default function Login({ history }) {
       <h1
         align="center"
         className="text-primary"
-        style={{ background: "#f28500" }}
+        style={{ background: "#f28500", padding: "10px" }}
       >
-        Banco Itaoliver
+        Banco Estagiário
       </h1>
       <div className="card">
         <div className="card-body">
@@ -52,11 +61,17 @@ export default function Login({ history }) {
                   type="password"
                   className="form-control"
                   placeholder="Entre com a senha"
+                  required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
+
+            <div className="block justify-content-center" align="center">
+              <p id="erroSenha" style={{ color: "red" }}></p>
+            </div>
+
             <div>
               <div className="block justify-content-center" align="center">
                 <button

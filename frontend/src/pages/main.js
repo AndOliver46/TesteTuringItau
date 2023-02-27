@@ -18,12 +18,26 @@ export default function Main({ history }) {
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState("PIX");
   const [receptor, setReceptor] = useState("");
+  const [mensagemErro, setMensagemErro] = useState("");
+  const [saldoEmissor, setSaldoEmissor] = useState("");
+  const [saldoReceptor, setSaldoReceptor] = useState("");
+
   const handleTransferir = async (e) => {
+    e.preventDefault();
     console.log(valor, tipo, receptor);
     await api
       .post("/transferencias/transferir", { valor, tipo, receptor })
       .then((response) => {
+        setSaldoEmissor(response.data.saldoEmissor);
+        setSaldoReceptor(response.data.saldoReceptor);
+        const div = document.querySelector("#transferenciaSucesso");
+        div.removeAttribute("hidden");
         history.push("/main");
+      })
+      .catch((error) => {
+        const div = document.querySelector("#transferenciaErro");
+        div.removeAttribute("hidden");
+        setMensagemErro(error.response.data.message);
       });
   };
 
@@ -37,16 +51,33 @@ export default function Main({ history }) {
   return (
     <div className="container">
       <h1 align="center" className="text-primary" style={{ margin: "20px" }}>
-        Bem vindo
+        Bem vindo(a)
       </h1>
 
       <div className="card">
-        <div className="App" style={{ padding: "10px", margin: "0px" }}>
+        <div
+          className="App"
+          style={{ padding: "10px"}}
+        >
           <p>Cliente: {user?.cliente.nome}</p>
           <p>CPF: {user?.cliente.cpf}</p>
           <p>Numero da conta: {user?.numero}</p>
           <p>Codigo da agencia: {user?.agencia.codigo} </p>
           <p>Saldo disponível: R$ {user?.saldo}</p>
+        </div>
+      </div>
+
+      <div className="card" id="transferenciaSucesso" hidden>
+        <div className="App" style={{ padding: "10px", margin: "0px" }}>
+          <p>Sua transferência foi realizada com sucesso!</p>
+          <p>Saldo do emissor: R$ {saldoEmissor}</p>
+          <p>Saldo do receptor: R$ {saldoReceptor}</p>
+        </div>
+      </div>
+
+      <div className="card" id="transferenciaErro" hidden align="center">
+        <div className="App" style={{ padding: "10px", margin: "0px" }}>
+          <p>Sua transferência não foi completada, erro: {mensagemErro}</p>
         </div>
       </div>
 
@@ -61,6 +92,7 @@ export default function Main({ history }) {
                   className="form-control"
                   placeholder="Informe o numero da conta de destino"
                   required
+                  pattern="^[0-9]{5}$"
                   value={receptor}
                   onChange={(e) => setReceptor(e.target.value)}
                 />
@@ -68,12 +100,14 @@ export default function Main({ history }) {
             </div>
             <div className="form-group">
               <div className="col-md-6 offset-md-3">
-                <label htmlFor="valor">Valor R$</label>
+                <label htmlFor="valor">Valor R$ (Somente numeros)</label>
                 <input
                   id="valor"
                   type="valor"
                   className="form-control"
                   placeholder="Entre o valor"
+                  required
+                  pattern="^[0-9]*$"
                   value={valor}
                   onChange={(e) => setValor(e.target.value)}
                 />
@@ -87,6 +121,7 @@ export default function Main({ history }) {
                   type="tipo"
                   className="form-control"
                   placeholder="Entre o valor"
+                  required
                   value={tipo} // ...force the select's value to match the state variable...
                   onChange={(e) => setTipo(e.target.value)}
                 >

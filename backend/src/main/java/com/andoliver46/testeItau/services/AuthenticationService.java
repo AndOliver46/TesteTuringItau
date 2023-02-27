@@ -1,5 +1,7 @@
-package com.andoliver46.testeItau.auth;
+package com.andoliver46.testeItau.services;
 
+import com.andoliver46.testeItau.dtos.authentication.AuthenticationRequest;
+import com.andoliver46.testeItau.dtos.authentication.AuthenticationResponse;
 import com.andoliver46.testeItau.config.JwtService;
 import com.andoliver46.testeItau.entities.Conta;
 import com.andoliver46.testeItau.repositories.ContaRepository;

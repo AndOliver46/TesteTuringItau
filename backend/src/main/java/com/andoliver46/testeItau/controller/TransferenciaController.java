@@ -1,6 +1,6 @@
 package com.andoliver46.testeItau.controller;
 
-import com.andoliver46.testeItau.auth.ApiResponse;
+import com.andoliver46.testeItau.dtos.authentication.ApiResponse;
 import com.andoliver46.testeItau.dtos.*;
 import com.andoliver46.testeItau.services.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;

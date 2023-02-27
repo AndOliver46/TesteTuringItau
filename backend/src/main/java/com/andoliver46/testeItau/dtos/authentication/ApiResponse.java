@@ -1,4 +1,4 @@
-package com.andoliver46.testeItau.auth;
+package com.andoliver46.testeItau.dtos.authentication;
 
 public class ApiResponse {
 

@@ -59,6 +59,11 @@ public class ContaService implements UserDetailsService {
 
     public ContaDTO criarConta(CriarContaDTO dto) {
 
+        try{
+
+        }catch(Exception e){
+
+        }
         Conta conta = new Conta();
         conta.setNumero(dto.getNumeroConta());
         conta.setSenha(new BCryptPasswordEncoder().encode(dto.getSenha()));

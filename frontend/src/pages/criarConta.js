@@ -12,8 +12,7 @@ export default function Criar({ history }) {
   const [cpf, setCpf] = useState("");
 
   const handleCriar = async (e) => {
-    //e.preventDefault();
-    console.log(codigoAgencia, numeroConta, senha, nome, cpf);
+    e.preventDefault();
     await api
       .post("/cliente/criarConta", {
         codigoAgencia,
@@ -71,9 +70,7 @@ export default function Criar({ history }) {
 
             <div className="form-group">
               <div className="col-md-6 offset-md-3">
-                <label htmlFor="numeroConta">
-                  Numero da conta (Até 5 digitos)
-                </label>
+                <label htmlFor="numeroConta">Numero da conta</label>
                 <input
                   id="idNumeroConta"
                   className="form-control"
