@@ -17,7 +17,7 @@ public class TransferenciaController {
     @Autowired
     private TransferenciaService transferenciaService;
 
-    @PostMapping("/transferir")
+    @PostMapping(value = "/transferir")
     public ResponseEntity<?> transferir(@RequestBody RealizarTransferenciaDTO dto){
         TransferenciaMinDTO newDto;
         try{

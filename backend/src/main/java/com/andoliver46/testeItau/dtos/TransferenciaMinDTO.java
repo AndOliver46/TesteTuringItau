@@ -13,6 +13,8 @@ public class TransferenciaMinDTO implements Serializable {
     private Instant dataHora;
     private Double valor;
     private TipoTransferencia tipo;
+    private Double saldoEmissor;
+    private Double saldoReceptor;
 
     public TransferenciaMinDTO(){
     }
@@ -29,6 +31,15 @@ public class TransferenciaMinDTO implements Serializable {
         this.dataHora = entity.getDataHora();
         this.valor = entity.getValor();
         this.tipo = entity.getTipo();
+    }
+
+    public TransferenciaMinDTO(Transferencia entity, Double saldoEmissor, Double saldoReceptor) {
+        this.id = entity.getId();
+        this.dataHora = entity.getDataHora();
+        this.valor = entity.getValor();
+        this.tipo = entity.getTipo();
+        this.saldoEmissor = saldoEmissor;
+        this.saldoReceptor = saldoReceptor;
     }
 
     public Integer getId() {
@@ -61,5 +72,21 @@ public class TransferenciaMinDTO implements Serializable {
 
     public void setTipo(TipoTransferencia tipo) {
         this.tipo = tipo;
+    }
+
+    public Double getSaldoEmissor() {
+        return saldoEmissor;
+    }
+
+    public void setSaldoEmissor(Double saldoEmissor) {
+        this.saldoEmissor = saldoEmissor;
+    }
+
+    public Double getSaldoReceptor() {
+        return saldoReceptor;
+    }
+
+    public void setSaldoReceptor(Double saldoReceptor) {
+        this.saldoReceptor = saldoReceptor;
     }
 }

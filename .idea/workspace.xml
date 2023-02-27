@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="922ba7bc-7729-4a01-b749-ba207ea35435" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/config/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/ContaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/ContaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/TransferenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/controller/TransferenciaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/TransferenciaMinDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/dtos/TransferenciaMinDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/TransferenciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/TransferenciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/Api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

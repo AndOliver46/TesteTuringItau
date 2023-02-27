@@ -10,7 +10,7 @@ export default function Login({ history }) {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    await api.post("/autenticar", { username, password }).then((response) => {
+    await api.post("/login", { username, password }).then((response) => {
       login(response.data.token);
       history.push("/main");
     });
@@ -18,8 +18,8 @@ export default function Login({ history }) {
 
   return (
     <div className="container-fluid center-block">
-      <h1 align="center" className="text-primary">
-        Login
+      <h1 align="center" className="text-primary" style={{ background: "#f28500" }}>
+        Banco Itaoliver
       </h1>
       <div className="card">
         <div className="card-body">
@@ -50,10 +50,27 @@ export default function Login({ history }) {
                 />
               </div>
             </div>
-            <div className="col-md-6 offset-md-3">
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
+            <div>
+              <div className="block justify-content-center" align="center">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  align="center"
+                  style={{ margin: "10px" }}
+                >
+                  Login
+                </button>
+              </div>
+              <div className="block justify-content-center" align="center">
+                <button
+                  style={{ margin: "10px" }}
+                  type="button"
+                  className="btn"
+                  //onClick={() => handleLogout()}
+                >
+                  Abrir uma conta
+                </button>
+              </div>
             </div>
           </form>
         </div>

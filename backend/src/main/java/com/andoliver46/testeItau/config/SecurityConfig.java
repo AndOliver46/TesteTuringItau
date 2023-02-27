@@ -25,8 +25,6 @@ import java.util.List;
 @Configuration
 public class SecurityConfig{
 
-    private static final long MAX_AGE_SECS = 3600;
-
     @Autowired
     private JwtAuthenticationFilter jwtAuthFilter;
 
@@ -58,7 +56,7 @@ public class SecurityConfig{
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/autenticar")
+                .requestMatchers("/api/login")
                 .permitAll()
                 .anyRequest()
                 .permitAll();

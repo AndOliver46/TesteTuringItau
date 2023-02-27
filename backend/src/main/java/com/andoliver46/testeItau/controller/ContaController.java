@@ -17,13 +17,13 @@ public class ContaController {
     @Autowired
     private ContaService contaService;
 
-    @GetMapping("/informacoes")
+    @GetMapping(value = "/informacoes")
     public ResponseEntity<ContaMinDTO> informacoes(){
         ContaMinDTO dto = contaService.informacoes();
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping("/criarConta")
+    @PostMapping(value = "/criarConta")
     public ResponseEntity<ContaDTO> criarConta(@RequestBody @Valid CriarContaDTO dto){
         ContaDTO newDto = contaService.criarConta(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(newDto.getId()).toUri();

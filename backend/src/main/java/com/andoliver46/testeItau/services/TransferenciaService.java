@@ -62,6 +62,6 @@ public class TransferenciaService {
         receptor.getTransferenciasRecebidas().add(transferencia);
         contaRepository.saveAll(Arrays.asList(emissor, receptor));
 
-        return new TransferenciaMinDTO(transferencia);
+        return new TransferenciaMinDTO(transferencia, emissor.getSaldo(), receptor.getSaldo());
     }
 }

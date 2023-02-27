@@ -28,7 +28,7 @@ public class AuthenticationController {
     @Autowired
     private UserAccessRepository userAccessRepository;
 
-    @PostMapping(value = "/autenticar", produces = { "application/json" })
+    @PostMapping(value = "/login", produces = { "application/json" })
     public ResponseEntity<?> authenticate(@Valid @RequestBody AuthenticationRequest request){
 
         AuthenticationResponse response = null;
