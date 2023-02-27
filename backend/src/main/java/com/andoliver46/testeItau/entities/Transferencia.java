@@ -1,5 +1,6 @@
 package com.andoliver46.testeItau.entities;
 
+import com.andoliver46.testeItau.entities.exceptions.SameAccountException;
 import com.andoliver46.testeItau.entities.exceptions.ValueLimitExcpetion;
 import com.andoliver46.testeItau.enums.TipoTransferencia;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -84,6 +85,9 @@ public class Transferencia {
 
     public void realizarTransferencia(){
         verificarValorETipo();
+        if(emissor.getNumero().equals(receptor.getNumero())){
+            throw new SameAccountException("Transferencia para a mesma conta não permitida");
+        }
         emissor.transferir(valor);
         receptor.depositar(valor);
     }
