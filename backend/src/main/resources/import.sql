@@ -2,10 +2,6 @@ INSERT INTO tb_agencia(codigo) VALUES ('5300');
 INSERT INTO tb_agencia(codigo) VALUES ('7420');
 INSERT INTO tb_agencia(codigo) VALUES ('8569');
 INSERT INTO tb_agencia(codigo) VALUES ('0249');
-INSERT INTO tb_agencia(codigo) VALUES ('0048');
-INSERT INTO tb_agencia(codigo) VALUES ('3789');
-INSERT INTO tb_agencia(codigo) VALUES ('9265');
-INSERT INTO tb_agencia(codigo) VALUES ('3751');
 
 INSERT INTO tb_cliente(cpf, nome) VALUES ('42454678967', 'Anderson Souza');
 INSERT INTO tb_cliente(cpf, nome) VALUES ('65784765433', 'Erica Santos');

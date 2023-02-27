@@ -19,7 +19,6 @@ export default function Main({ history }) {
   const [tipo, setTipo] = useState("PIX");
   const [receptor, setReceptor] = useState("");
   const handleTransferir = async (e) => {
-    //e.preventDefault();
     console.log(valor, tipo, receptor);
     await api
       .post("/transferencias/transferir", { valor, tipo, receptor })
@@ -47,7 +46,7 @@ export default function Main({ history }) {
           <p>CPF: {user?.cliente.cpf}</p>
           <p>Numero da conta: {user?.numero}</p>
           <p>Codigo da agencia: {user?.agencia.codigo} </p>
-          <p>Saldo disponível: {user?.saldo}</p>
+          <p>Saldo disponível: R$ {user?.saldo}</p>
         </div>
       </div>
 

@@ -9,16 +9,23 @@ export default function Login({ history }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     await api.post("/login", { username, password }).then((response) => {
       login(response.data.token);
       history.push("/main");
     });
   };
 
+  const handleCriar = async () => {
+    history.push("/criarConta");
+  };
+
   return (
     <div className="container-fluid center-block">
-      <h1 align="center" className="text-primary" style={{ background: "#f28500" }}>
+      <h1
+        align="center"
+        className="text-primary"
+        style={{ background: "#f28500" }}
+      >
         Banco Itaoliver
       </h1>
       <div className="card">
@@ -66,7 +73,7 @@ export default function Login({ history }) {
                   style={{ margin: "10px" }}
                   type="button"
                   className="btn"
-                  //onClick={() => handleLogout()}
+                  onClick={() => handleCriar()}
                 >
                   Abrir uma conta
                 </button>
