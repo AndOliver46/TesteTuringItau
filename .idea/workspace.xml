@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="922ba7bc-7729-4a01-b749-ba207ea35435" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Transferencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/entities/exceptions/InsuficientBalanceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/TransferenciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/andoliver46/testeItau/services/TransferenciaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

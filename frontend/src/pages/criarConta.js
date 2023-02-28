@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { logout, getToken } from "../services/auth";
 
 import api from "../services/Api";
 
@@ -11,6 +12,8 @@ export default function Criar({ history }) {
   const [cpf, setCpf] = useState("");
 
   const handleCriar = async (e) => {
+    const token = getToken();
+    logout(token);
     e.preventDefault();
     await api
       .post("/cliente/criarConta", {

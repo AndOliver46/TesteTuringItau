@@ -1,18 +1,14 @@
 package com.andoliver46.testeItau.services;
 
-import com.andoliver46.testeItau.dtos.BuscarContaDTO;
 import com.andoliver46.testeItau.dtos.RealizarTransferenciaDTO;
-import com.andoliver46.testeItau.dtos.TransferenciaDTO;
 import com.andoliver46.testeItau.dtos.TransferenciaMinDTO;
 import com.andoliver46.testeItau.entities.Conta;
 import com.andoliver46.testeItau.entities.Transferencia;
-import com.andoliver46.testeItau.entities.exceptions.InsuficientBalanceException;
 import com.andoliver46.testeItau.entities.exceptions.SameAccountException;
 import com.andoliver46.testeItau.entities.exceptions.ValueLimitExcpetion;
 import com.andoliver46.testeItau.enums.TipoTransferencia;
 import com.andoliver46.testeItau.repositories.ContaRepository;
 import com.andoliver46.testeItau.repositories.TransferenciaRepository;
-import com.andoliver46.testeItau.services.exceptions.EntityNotFoundException;
 import com.andoliver46.testeItau.services.exceptions.ForbiddenException;
 import com.andoliver46.testeItau.services.exceptions.ValueException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.Optional;
 
 @Service
 public class TransferenciaService {
@@ -49,8 +44,6 @@ public class TransferenciaService {
 
         try{
             transferencia.realizarTransferencia();
-        }catch(InsuficientBalanceException e){
-            throw new ValueException(e.getMessage());
         }catch(ValueLimitExcpetion e){
             throw new ValueException(e.getMessage());
         }catch (SameAccountException e){
