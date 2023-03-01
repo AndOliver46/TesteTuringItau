@@ -56,7 +56,7 @@ public class SecurityConfig{
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/**", "/h2-console/**", "/api/login", "/api/cliente/criarConta").permitAll()
+                        .requestMatchers("/", "/h2-console/**", "/api/login", "/api/cliente/criarConta").permitAll()
                         .anyRequest().hasRole("CLIENT")
                 );
 
