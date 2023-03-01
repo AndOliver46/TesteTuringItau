@@ -1,8 +1,13 @@
 package com.andoliver46.testeItau.dtos.authentication;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+
 public class AuthenticationRequest {
 
+    @NotBlank(message = "O campo número da conta deve ser preenchido!")
     private String username;
+    @NotBlank(message = "O campo senha deve ser preenchido!")
     private String password;
 
     public AuthenticationRequest(){

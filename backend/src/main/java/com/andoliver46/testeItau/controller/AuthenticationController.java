@@ -1,7 +1,7 @@
 package com.andoliver46.testeItau.controller;
 
-import com.andoliver46.testeItau.dtos.authentication.AuthenticationRequest;
 import com.andoliver46.testeItau.dtos.authentication.ApiResponse;
+import com.andoliver46.testeItau.dtos.authentication.AuthenticationRequest;
 import com.andoliver46.testeItau.dtos.authentication.AuthenticationResponse;
 import com.andoliver46.testeItau.dtos.authentication.JwtResponse;
 import com.andoliver46.testeItau.entities.UserAccess;

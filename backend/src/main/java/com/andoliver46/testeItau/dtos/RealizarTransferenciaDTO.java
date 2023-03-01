@@ -1,27 +1,30 @@
 package com.andoliver46.testeItau.dtos;
 
-import com.andoliver46.testeItau.entities.Transferencia;
-import com.andoliver46.testeItau.enums.TipoTransferencia;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 public class RealizarTransferenciaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private Double valor;
+    @Pattern(regexp = "^[0-9]*$", message = "Digite somente numeros no valor!")
+    private String valor;
+
+    @NotBlank(message = "O tipo de transferencia deve ser preenchido!")
     private String tipo;
 
+    @Pattern(regexp = "^[0-9]{5}$", message = "Numero de conta inválido!")
     private String receptor;
 
     public RealizarTransferenciaDTO(){
     }
 
-    public Double getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

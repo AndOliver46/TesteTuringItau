@@ -3,6 +3,7 @@ package com.andoliver46.testeItau.controller;
 import com.andoliver46.testeItau.dtos.authentication.ApiResponse;
 import com.andoliver46.testeItau.dtos.*;
 import com.andoliver46.testeItau.services.TransferenciaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class TransferenciaController {
     private TransferenciaService transferenciaService;
 
     @PostMapping(value = "/transferir")
-    public ResponseEntity<?> transferir(@RequestBody RealizarTransferenciaDTO dto){
+    public ResponseEntity<?> transferir(@RequestBody @Valid RealizarTransferenciaDTO dto){
         TransferenciaMinDTO newDto;
         try{
             newDto = transferenciaService.transferir(dto);

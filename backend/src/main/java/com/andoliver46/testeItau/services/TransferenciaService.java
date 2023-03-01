@@ -38,7 +38,7 @@ public class TransferenciaService {
         Transferencia transferencia = new Transferencia();
         transferencia.setDataHora(Instant.now());
         transferencia.setTipo(TipoTransferencia.valueOf(dto.getTipo()));
-        transferencia.setValor(dto.getValor());
+        transferencia.setValor(Double.valueOf(dto.getValor()));
         transferencia.setEmissor(emissor);
         transferencia.setReceptor(receptor);
 
