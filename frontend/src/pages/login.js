@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import api from "../services/Api";
-import { login, logout, getToken } from "../services/auth";
+import { login, logout } from "../services/auth";
 
 export default function Login({ history }) {
   const [username, setUsername] = useState("");

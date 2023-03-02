@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { logout, getToken } from "../services/auth";
+import { logout } from "../services/auth";
 
 import api from "../services/Api";
 

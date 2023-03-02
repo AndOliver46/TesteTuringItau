@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class RealizarTransferenciaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Pattern(regexp = "^[0-9]*$", message = "Digite somente numeros no valor!")
+    @Pattern(regexp = "(?:\\.|[0-9])*", message = "Digite somente numeros no valor!")
     private String valor;
 
     @NotBlank(message = "O tipo de transferencia deve ser preenchido!")
