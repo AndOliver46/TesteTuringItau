@@ -8,8 +8,7 @@ export default function Login({ history }) {
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
-    const token = getToken();
-    logout(token);
+    logout();
     e.preventDefault();
     await api
       .post("/login", { username, password })
@@ -27,42 +26,69 @@ export default function Login({ history }) {
   };
 
   const handleCriar = async () => {
+    logout();
     history.push("/criarConta");
   };
 
   return (
-    <div className="container-fluid center-block">
-      <h1
-        align="center"
-        className="text-primary"
-        style={{ background: "#f28500", padding: "10px" }}
+    <div
+      style={{
+        height: "100vh",
+      }}
+    >
+      <div
+        className="card"
+        style={{
+          margin: "40px auto 0px auto",
+          boxSizing: "border-box",
+          width: "390px",
+          background: "#fff",
+          borderRadius: "10px",
+          overflow: "hidden",
+          padding: "70px 55px 33px",
+        }}
       >
-        Banco Estagiário
-      </h1>
-      <div className="card">
+        <p
+          style={{
+            fontSize: "30px",
+            color: "#333",
+            lineHeight: "1.2",
+            textAlign: "center",
+          }}
+        >
+          <strong>Faça seu login</strong>
+        </p>
         <div className="card-body">
           <form onSubmit={handleLogin}>
             <div className="form-group">
-              <div className="col-md-6 offset-md-3">
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                }}
+              >
                 <label htmlFor="username">Numero da conta</label>
                 <input
-                  id="idUsername"
+                  id="username"
                   className="form-control"
-                  placeholder="Informe o numero de sua conta"
                   required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
-            <div className="form-group">
-              <div className="col-md-6 offset-md-3">
+            <div
+              className="form-group"
+              style={{
+                marginTop: "30px",
+              }}
+            >
+              <div>
                 <label htmlFor="password">Senha</label>
                 <input
                   id="password"
                   type="password"
                   className="form-control"
-                  placeholder="Entre com a senha"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -75,14 +101,22 @@ export default function Login({ history }) {
             </div>
 
             <div>
-              <div className="block justify-content-center" align="center">
+              <div className="block justify-content-center">
                 <button
                   type="submit"
                   className="btn btn-primary"
                   align="center"
-                  style={{ margin: "10px" }}
+                  style={{
+                    padding: "0 20px",
+                    width: "100%",
+                    height: "50px",
+                    margin: "20px 0px",
+                    outline: "none!important",
+                    border: "none",
+                    borderRadius: "15px",
+                  }}
                 >
-                  Login
+                  LOGIN
                 </button>
               </div>
               <div className="block justify-content-center" align="center">
@@ -92,7 +126,7 @@ export default function Login({ history }) {
                   className="btn"
                   onClick={() => handleCriar()}
                 >
-                  Abrir uma conta
+                  Ainda não sou cliente >
                 </button>
               </div>
             </div>

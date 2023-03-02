@@ -6,6 +6,7 @@ import com.andoliver46.testeItau.entities.Conta;
 import com.andoliver46.testeItau.repositories.AgenciaRepository;
 import com.andoliver46.testeItau.repositories.ClienteRepository;
 import com.andoliver46.testeItau.repositories.ContaRepository;
+import com.andoliver46.testeItau.services.exceptions.AccountAlreadyExistsException;
 import com.andoliver46.testeItau.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 
 @Service
@@ -60,21 +62,21 @@ public class ContaService implements UserDetailsService {
     public ContaDTO criarConta(CriarContaDTO dto) {
 
         try{
+            Conta conta = new Conta();
+            conta.setNumero(dto.getNumeroConta());
+            conta.setSenha(new BCryptPasswordEncoder().encode(dto.getSenha()));
+            conta.setAgencia(agenciaRepository.findByCodigo(dto.getCodigoAgencia()));
+            Cliente cliente = new Cliente(null, dto.getNome(), dto.getCpf());
+            conta.setCliente(cliente);
+            conta.setAuthoritie("ROLE_CLIENT");
 
+            clienteRepository.save(cliente);
+            contaRepository.save(conta);
+
+            return new ContaDTO(conta);
         }catch(Exception e){
-
+            throw new AccountAlreadyExistsException("Já existe uma conta cadastrada com esse número!");
         }
-        Conta conta = new Conta();
-        conta.setNumero(dto.getNumeroConta());
-        conta.setSenha(new BCryptPasswordEncoder().encode(dto.getSenha()));
-        conta.setAgencia(agenciaRepository.findByCodigo(dto.getCodigoAgencia()));
-        Cliente cliente = new Cliente(null, dto.getNome(), dto.getCpf());
-        conta.setCliente(cliente);
-        conta.setAuthoritie("ROLE_CLIENT");
 
-        clienteRepository.save(cliente);
-        contaRepository.save(conta);
-
-        return new ContaDTO(conta);
     }
 }

@@ -12,8 +12,7 @@ export default function Criar({ history }) {
   const [cpf, setCpf] = useState("");
 
   const handleCriar = async (e) => {
-    const token = getToken();
-    logout(token);
+    logout();
     e.preventDefault();
     await api
       .post("/cliente/criarConta", {
@@ -24,11 +23,22 @@ export default function Criar({ history }) {
         cpf,
       })
       .then((response) => {
-        history.push("/login");
+        const p = document.querySelector("#respostaCriar");
+        p.style.color = "#006400";
+        p.textContent =
+          "Conta criada com sucesso! Numero: " + response.data.numero;
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data.message);
+          const p = document.querySelector("#respostaCriar");
+          p.textContent = error.response.data.message;
+        }
       });
   };
 
   const handleVoltar = async () => {
+    logout();
     history.push("/login");
   };
 
@@ -130,8 +140,12 @@ export default function Criar({ history }) {
               </div>
             </div>
 
-            <div>
-              <div className="block justify-content-center" align="center">
+            <div className="col-md-6 offset-md-3">
+              <p id="respostaCriar" style={{ color: "red" }}></p>
+            </div>
+
+            <div className="d-flex justify-content-center">
+              <div className="flex justify-content-center" align="center">
                 <button
                   type="submit"
                   className="btn btn-primary"
@@ -141,20 +155,21 @@ export default function Criar({ history }) {
                   Abrir conta
                 </button>
               </div>
+              <div className="flex justify-content-center" align="center">
+                <button
+                  style={{ margin: "10px" }}
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => handleVoltar()}
+                >
+                  Voltar
+                </button>
+              </div>
             </div>
           </form>
         </div>
       </div>
-      <div className="block justify-content-center" align="center">
-        <button
-          style={{ margin: "10px" }}
-          type="button"
-          className="btn btn-primary"
-          onClick={() => handleVoltar()}
-        >
-          Voltar
-        </button>
-      </div>
+
       <div className="card">
         <h4 style={{ margin: "10px" }}>Regras:</h4>
         <p style={{ margin: "10px" }}>

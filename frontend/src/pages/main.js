@@ -69,7 +69,10 @@ export default function Main({ history }) {
         align="center"
         style={{ display: "none" }}
       >
-        <div className="App" style={{ padding: "10px", margin: "0px" }}>
+        <div
+          className="App"
+          style={{ padding: "10px", margin: "0px", color: "#006400" }}
+        >
           <p>Sua transferência foi realizada com sucesso!</p>
           <p>Saldo do emissor: R$ {saldoEmissor}</p>
           <p>Saldo do receptor: R$ {saldoReceptor}</p>
@@ -82,7 +85,10 @@ export default function Main({ history }) {
         align="center"
         style={{ display: "none" }}
       >
-        <div className="App" style={{ padding: "10px", margin: "0px" }}>
+        <div
+          className="App"
+          style={{ padding: "10px", margin: "0px", color: "red" }}
+        >
           <p>Sua transferência não foi completada, erro: {mensagemErro}</p>
         </div>
       </div>
@@ -137,8 +143,8 @@ export default function Main({ history }) {
                 </select>
               </div>
             </div>
-            <div>
-              <div className="block justify-content-center" align="center">
+            <div className="d-flex justify-content-center">
+              <div className="block justify-content-center">
                 <button
                   type="submit"
                   className="btn btn-primary"
@@ -148,19 +154,19 @@ export default function Main({ history }) {
                   Realizar transferencia
                 </button>
               </div>
+              <div className="block justify-content-center">
+                <button
+                  style={{ margin: "10px" }}
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => handleLogout()}
+                >
+                  Sair
+                </button>
+              </div>
             </div>
           </form>
         </div>
-      </div>
-      <div className="block justify-content-center" align="center">
-        <button
-          style={{ margin: "10px" }}
-          type="button"
-          className="btn btn-primary"
-          onClick={() => handleLogout()}
-        >
-          Sair
-        </button>
       </div>
     </div>
   );
