@@ -1,4 +1,4 @@
-## Rodar projeto : </br>
+## Instruções : </br>
 
 ### 1° Rodar projeto Java/Spring: </br>
 $ cd backend</br>
