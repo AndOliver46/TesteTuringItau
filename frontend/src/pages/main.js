@@ -44,6 +44,9 @@ export default function Main({ history }) {
     await api.delete("/logout", {}).then((response) => {
       logout(response.data.token);
       history.push("/login");
+    }).catch((error) => {
+      logout();
+      history.push("/login");
     });
   };
 
