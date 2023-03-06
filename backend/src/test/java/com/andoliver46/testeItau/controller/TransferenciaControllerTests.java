@@ -77,10 +77,10 @@ public class TransferenciaControllerTests {
         result.andExpect(status().isOk());
         result.andExpect(jsonPath("$.id").exists());
         result.andExpect(jsonPath("$.dataHora").exists());
-        result.andExpect(jsonPath("$.valor").value("5000.0"));
+        result.andExpect(jsonPath("$.valor").value("6000.0"));
         result.andExpect(jsonPath("$.tipo").value("TED"));
-        result.andExpect(jsonPath("$.saldoEmissor").value("-5000.0"));
-        result.andExpect(jsonPath("$.saldoReceptor").value("5000.0"));
+        result.andExpect(jsonPath("$.saldoEmissor").value("-6000.0"));
+        result.andExpect(jsonPath("$.saldoReceptor").value("6000.0"));
     }
 
     @Test
@@ -96,7 +96,7 @@ public class TransferenciaControllerTests {
 
         result.andExpect(status().isBadRequest());
         result.andExpect(jsonPath("$.success").value("false"));
-        result.andExpect(jsonPath("$.message").value("Limite PIX excedido, limite: R$5000"));
+        result.andExpect(jsonPath("$.message").value("Limite PIX excedido, limite: R$5.000"));
     }
 
     @Test

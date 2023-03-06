@@ -94,11 +94,11 @@ public class Transferencia {
 
     private void verificarValorETipo() {
         if(valor > 5000.00 && tipo.equals(TipoTransferencia.PIX)){
-            throw new ValueLimitExcpetion("Limite PIX excedido, limite: R$5000");
-        }else if((valor < 5000.00 || valor > 10000.00) &&  tipo.equals(TipoTransferencia.TED)){
-            throw new ValueLimitExcpetion("Transferências TED aceitam valores entre R$5000 e R$10000");
-        }else if((valor < 10000.00) &&  tipo.equals(TipoTransferencia.DOC)){
-            throw new ValueLimitExcpetion("Transferências DOC aceitam valores acima de R$10000");
+            throw new ValueLimitExcpetion("Limite PIX excedido, limite: R$5.000");
+        }else if((valor <= 5000.00 || valor > 10000.00) &&  tipo.equals(TipoTransferencia.TED)){
+            throw new ValueLimitExcpetion("Transferências TED aceitam valores acima de R$5.000 e até R$10.000");
+        }else if((valor <= 10000.00) &&  tipo.equals(TipoTransferencia.DOC)){
+            throw new ValueLimitExcpetion("Transferências DOC aceitam valores acima de R$10.000");
         }
     }
 

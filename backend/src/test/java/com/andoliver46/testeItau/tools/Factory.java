@@ -27,7 +27,7 @@ public class Factory {
 	}
 
 	public static RealizarTransferenciaDTO realizarTransferenciaTedValida() {
-		RealizarTransferenciaDTO realizarTransferenciaDTO = new RealizarTransferenciaDTO("5000.00", "TED", "21675");
+		RealizarTransferenciaDTO realizarTransferenciaDTO = new RealizarTransferenciaDTO("6000.00", "TED", "21675");
 		return realizarTransferenciaDTO;
 	}
 
