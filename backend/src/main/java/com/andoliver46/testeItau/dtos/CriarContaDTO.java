@@ -24,6 +24,14 @@ public class CriarContaDTO implements Serializable {
 
     public CriarContaDTO(){}
 
+    public CriarContaDTO(String codigoAgencia, String numeroConta, String senha, String nome, String cpf) {
+        this.codigoAgencia = codigoAgencia;
+        this.numeroConta = numeroConta;
+        this.senha = senha;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
     public String getCodigoAgencia() {
         return codigoAgencia;
     }

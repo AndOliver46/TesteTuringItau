@@ -20,6 +20,12 @@ public class RealizarTransferenciaDTO implements Serializable {
     public RealizarTransferenciaDTO(){
     }
 
+    public RealizarTransferenciaDTO(String valor, String tipo, String receptor) {
+        this.valor = valor;
+        this.tipo = tipo;
+        this.receptor = receptor;
+    }
+
     public String getValor() {
         return valor;
     }
